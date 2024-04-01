@@ -1,0 +1,75 @@
+<!--
+
+practical 5 write a program to perform validation of a form using angularjs
+
+• HTML Structure:
+<!DOCTYPE html> declaration specifies the document type and version of HTML.
+<head> section contains the document title and includes the AngularJS library via a CDN link.
+Inline styles define font family and color for the heading.
+
+• AngularJS Initialization:
+ng-app="" directive bootstraps an AngularJS application, initialized in the entire document.
+
+• Form Setup:
+Inside <body>, a heading displays "GeeksforGeeks" and a subheading indicates "AngularJS Form 
+Validation".
+<form> element is defined with the name attribute "form1" to reference the form in AngularJS.
+
+• Form Fields:
+Two input fields exist within the form: one for "Name" and another for "Address".
+Each input field has a name attribute for unique identification within the form.
+ng-model directive binds input fields to AngularJS scope variables (username and useraddress).
+The required attribute is added to make both fields mandatory.
+
+• Error Display:
+ng-show directive conditionally displays error messages.
+For the "Name" field, the error message appears if the field is pristine and invalid.
+
+• Information Message:
+A paragraph below the form explains how the ng-show directive displays error messages only under 
+specific conditions.
+-->
+
+
+<!DOCTYPE html> 
+<html> 
+ 
+<head> 
+ <title>AngularJS Form Validation</title> 
+ <script src= 
+"https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> 
+ </script> 
+ <style> 
+ body { 
+ font-family: Arial, Helvetica, sans-serif; 
+ } 
+ h1 { 
+ color: green; 
+ } 
+ </style> 
+</head> 
+ 
+<body ng-app=""> 
+ <h1>GeeksforGeeks</h1> 
+ <h3>AngularJS Form Validation</h3> 
+ <form name="form1"> 
+ <p>Name: 
+ <input name="username" 
+ ng-model="username" required> 
+ <span ng-show= 
+"form1.username.$pristine && form1.username.$invalid"> 
+ The name is required.</span> 
+ </p> 
+ <p>Address: 
+ <input name="useraddress"
+ ng-model="useraddress" required> 
+ </p> 
+ </form> 
+ <p> 
+ We use the ng-show directive to only 
+ show the error message <br>if the field 
+ has not modified yet AND content present 
+ in the field is invalid. 
+ </p> 
+</body> 
+</html>

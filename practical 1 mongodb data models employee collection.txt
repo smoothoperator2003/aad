@@ -1,0 +1,55 @@
+practical 1 write a program to implement mongoDB data models (employee collection)
+
+Create & Use database
+
+
+use employee
+
+db.createCollection('employee')
+
+
+Insert
+
+
+db.employee.insertOne({ emp_id: 1, emp_name: 'XYZ', emp_age: 21, emp_salary: 98000 });
+
+db.employee.insertMany([
+ { emp_id: 2, emp_name: 'PQR', emp_age: 24, emp_salary: 87000 },
+ { emp_id: 3, emp_name: 'ABC', emp_age: 28, emp_salary: 120000 }
+])
+
+
+Find()
+
+
+db.employee.find()
+db.employee.findOne({emp_id : 1})
+db.employee.find().sort({emp_age : 1})
+db.employee.find().sort({emp_age : -1})
+db.employee.find({emp_age : {$gt:25}})
+db.employee.find({emp_age : {$lt:25}})
+db.employee.find().pretty()
+
+
+
+updateOne() & updateMany()
+
+
+db.employee.updateOne(
+ { emp_name: "ABC" }, // Filter condition
+ { $set: { emp_age: 35 } } // Update operation
+)
+
+db.employee.updateMany(
+ { emp_salary: { $lt: 90000 } }, // Filter condition: Employees with salary less than 90000
+ { $set: { emp_name: 'MNO' } } // Update operation: Set emp_name to 'MNO'
+)
+
+
+deleteOne() & deleteMany()
+
+
+db.employee.deleteOne({emp_name : 'MNO' })
+db.employee.deleteMany(
+ { emp_salary: { $lt: 10000 } } 
+)

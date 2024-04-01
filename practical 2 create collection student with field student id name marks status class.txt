@@ -1,0 +1,32 @@
+practical 2 create collection student with field student id, name, marks, status, class
+
+1. Find all the document of students.
+2. Find list of all students who are passed.
+3. Find all the students of Computer Science.
+4. Update status to ‘Fail’ of all the students with marks less than 40
+
+
+Create and use database
+
+use student
+
+db.createCollection('students')
+
+db.students.insertMany([
+ { std_id: 1, std_name: 'ABC', std_marks: 85, std_status: 'PASS', std_class: 'Computer 
+Science' },
+ { std_id: 2, std_name: 'DEF', std_marks: 90, std_status: 'PASS', std_class: 'Mathematics' },
+ { std_id: 3, std_name: 'GHI', std_marks: 35, std_status: 'FAIL', std_class: 'Physics' }
+]);
+
+
+Find()
+
+db.students.find()
+db.students.find({ std_class: 'Computer Science' });
+db.students.find({ std_status: ‘PASS’ });
+
+
+Update
+
+db.students.updateMany( { std_marks: { $lt: 40 } }, { $set: { std_status: 'FAIL' } } )

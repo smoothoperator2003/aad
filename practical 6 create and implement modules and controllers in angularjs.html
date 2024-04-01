@@ -1,0 +1,64 @@
+<!-- practical 6 write a program to create and implement modules and controllers in angular js -->
+
+<!--
+• Modules in AngularJS:
+Definition: 
+Modules are containers for different parts of an AngularJS application, such as controllers, services, 
+directives, etc.
+Key Features:
+Provide a way to organize and manage application components.
+Support dependency injection.
+Facilitate modularity and code encapsulation.
+
+• Controllers in AngularJS:
+Definition: 
+Controllers are responsible for handling application logic and data binding in AngularJS.
+Key Features:
+Bind data to the view using the scope object.
+Encapsulate business logic and user interactions.
+Promote separation of concerns within the application.
+
+• Benefits:
+Modularity: Modules help in organizing code and promoting code reuse.
+Testability: Controllers encapsulate logic, making it easier to test individual components.
+Code Organization: Provides a structured way to organize code, improving readability and 
+maintainability
+-->
+
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+ <title> 
+ Modules and Controllers in Files 
+ </title> 
+ <script src= 
+"https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> 
+ </script> 
+ <script src="DemoApp.js"></script> 
+ <script src="DemoController.js"></script> 
+</head> 
+<body ng-app="DemoApp"> 
+ <h1 style="color:green">GeeksforGeeks</h1> 
+ <h3>AngularJS Modules</h3> 
+ <h4> 
+ Using controllers in Module 
+ </h4> 
+ <div ng-app="DemoApp" 
+ ng-controller="DemoController"> 
+ Vowels List : 
+ <button ng-click="ch('A')">A</button> 
+ <button ng-click="ch('E')">E</button> 
+ <button ng-click="ch('I')">I</button> 
+ <button ng-click="ch('O')">O</button> 
+ <button ng-click="ch('U')">U</button> 
+ <p>{{ choice }}</p> 
+ Vowels List : 
+ <select ng-options="option for option in list" 
+ ng-model="mychoice" 
+ ng-change="c()"> 
+ </select> 
+ <p>{{ choice }}</p> 
+ </div> 
+</body> 
+</html>

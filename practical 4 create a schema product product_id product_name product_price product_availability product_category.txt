@@ -1,0 +1,49 @@
+practical 4 create schema product (product_id, product_name, product_availabilty, product_category)
+
+1. Create product collection & Insert atleast 5 records.
+2. Find all the data of product schema.
+3. Display all the product with price greater than 50.
+4. Find all products with no. of availability less than 5.
+5. Find all products with category = ‘biscuit’.
+6. Update all price of product including GST
+7. Delete all product with category = ‘candy’
+
+
+Create and insert records 
+
+use product
+
+db.createCollection('product')
+
+db.products.insertMany([
+ { prod_id: 1, prod_name: 'Hide&Seek', prod_price: 75, prod_availability: 37, 
+prod_category: 'Biscuit' },
+ { prod_id: 2, prod_name: 'OREO', prod_price: 10, prod_availability: '75', prod_category: 
+'Biscuit' },
+ { prod_id: 3, prod_name: 'Dairy Milk', prod_price: 20, prod_availability: '45', 
+prod_category: 'Choclate' },
+ { prod_id: 4, prod_name: 'Melody', prod_price: 2, prod_availability: 50, prod_category: 
+'Candy' },
+ { prod_id: 5, prod_name: 'BourBon', prod_price: 50, prod_availability: 4, prod_category: 
+'Bisciut' }
+]);
+
+
+Find ()
+
+db.products.find()
+db.products.find({prod_price : {$gt :50}})
+db.products.find({prod_availability : {$lt :5}})
+db.products.find({prod_category : 'Biscuit'})
+
+
+update()
+
+db.products.updateMany({},{$inc : {prod_price:50}})
+
+
+delete()
+
+db.products.deleteOne({prod_category: 'Candy'})
+
+
