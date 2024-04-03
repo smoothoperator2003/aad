@@ -1,15 +1,15 @@
-practical 3 create customer collection (id, name, age, contact) with atleast 5 document and perform
+// practical 3 create customer collection (id, name, age, contact) with atleast 5 document and perform
 
-1. Display all the document from the collection.
-2. List out the document of the customer with age less than 18
+// 1. Display all the document from the collection.
+// 2. List out the document of the customer with age less than 18
 
 
-Create and Use Customer database
+// Create and Use Customer database
 
 
 use Customer
 
- db.createCollection('customers')
+db.createCollection('customers')
 
 db.customers.insertMany([
  { c_id: 1, c_name: 'ABC', c_age: 21, c_contact: 6457815471 },
@@ -20,9 +20,8 @@ db.customers.insertMany([
 ]);
 
 
-find()
+// find()
 
 db.customer.find()
 
- db.customers.find({c_age : {$lt : 18}})
-
+db.customers.find({c_age : {$lt : 18}})
