@@ -1,6 +1,6 @@
-practical 1 write a program to implement mongoDB data models (employee collection)
+// practical 1 write a program to implement mongoDB data models (employee collection)
 
-Create & Use database
+// Create & Use database
 
 
 use employee
@@ -8,7 +8,7 @@ use employee
 db.createCollection('employee')
 
 
-Insert
+// Insert
 
 
 db.employee.insertOne({ emp_id: 1, emp_name: 'XYZ', emp_age: 21, emp_salary: 98000 });
@@ -19,7 +19,7 @@ db.employee.insertMany([
 ])
 
 
-Find()
+// Find()
 
 
 db.employee.find()
@@ -32,7 +32,7 @@ db.employee.find().pretty()
 
 
 
-updateOne() & updateMany()
+// updateOne() & updateMany()
 
 
 db.employee.updateOne(
@@ -46,7 +46,7 @@ db.employee.updateMany(
 )
 
 
-deleteOne() & deleteMany()
+// deleteOne() & deleteMany()
 
 
 db.employee.deleteOne({emp_name : 'MNO' })
