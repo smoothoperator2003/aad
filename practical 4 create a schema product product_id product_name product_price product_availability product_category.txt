@@ -1,15 +1,15 @@
-practical 4 create schema product (product_id, product_name, product_availabilty, product_category)
+// practical 4 create schema product (product_id, product_name, product_availabilty, product_category)
 
-1. Create product collection & Insert atleast 5 records.
-2. Find all the data of product schema.
-3. Display all the product with price greater than 50.
-4. Find all products with no. of availability less than 5.
-5. Find all products with category = ‘biscuit’.
-6. Update all price of product including GST
-7. Delete all product with category = ‘candy’
+// 1. Create product collection & Insert atleast 5 records.
+// 2. Find all the data of product schema.
+// 3. Display all the product with price greater than 50.
+// 4. Find all products with no. of availability less than 5.
+// 5. Find all products with category = ‘biscuit’.
+// 6. Update all price of product including GST
+// 7. Delete all product with category = ‘candy’
 
 
-Create and insert records 
+// Create and insert records 
 
 use product
 
@@ -29,7 +29,7 @@ prod_category: 'Choclate' },
 ]);
 
 
-Find ()
+// Find ()
 
 db.products.find()
 db.products.find({prod_price : {$gt :50}})
@@ -37,13 +37,11 @@ db.products.find({prod_availability : {$lt :5}})
 db.products.find({prod_category : 'Biscuit'})
 
 
-update()
+// update()
 
 db.products.updateMany({},{$inc : {prod_price:50}})
 
 
-delete()
+// delete()
 
 db.products.deleteOne({prod_category: 'Candy'})
-
-
