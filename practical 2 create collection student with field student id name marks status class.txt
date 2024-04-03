@@ -1,12 +1,12 @@
-practical 2 create collection student with field student id, name, marks, status, class
+// practical 2 create collection student with field student id, name, marks, status, class
 
-1. Find all the document of students.
-2. Find list of all students who are passed.
-3. Find all the students of Computer Science.
-4. Update status to ‘Fail’ of all the students with marks less than 40
+// 1. Find all the document of students.
+// 2. Find list of all students who are passed.
+// 3. Find all the students of Computer Science.
+// 4. Update status to ‘Fail’ of all the students with marks less than 40
 
 
-Create and use database
+// Create and use database
 
 use student
 
@@ -20,13 +20,13 @@ Science' },
 ]);
 
 
-Find()
+// Find()
 
 db.students.find()
 db.students.find({ std_class: 'Computer Science' });
 db.students.find({ std_status: ‘PASS’ });
 
 
-Update
+// Update
 
 db.students.updateMany( { std_marks: { $lt: 40 } }, { $set: { std_status: 'FAIL' } } )
