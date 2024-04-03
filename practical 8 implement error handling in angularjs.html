@@ -1,70 +1,65 @@
-<!-- 
-The AngularJS framework is utilized to create an application with a single controller (myCtrl) defined within the myApp module.
-• The controller contains a function (calculate()) triggered by a button click. This function attempts to calculate the square root of a user-inputted number.
-• Inside the calculate() function, there's a try-catch block to handle potential exceptions. If the user enters a negative number, an exception is thrown with an appropriate error message.
-• The $exceptionHandler service provided by AngularJS is used to log and handle exceptions globally within the application.
-• The HTML template includes an input field for entering a number, a button to trigger the calculation, and placeholders to display the result and any exceptions that occur during the process
--->
+<!-- practical 8 implement error handling in angularjs.html -->
 
 <!DOCTYPE html> 
 <html> 
 <head> 
- <title>Exception Handling in AngularJS</title> 
- <style> 
- input { 
- width: 100px; 
- padding: 5px 15px; 
- margin: 5px 0; 
- box-sizing: border-box; 
- border: 2px solid #ccc; 
- border-radius: 4px; 
- } 
- button { 
- width: 80px; 
- background-color: #4caf50; 
- color: white; 
- padding: 6px 12px; 
- margin: 5px 0; 
- border: none; 
- border-radius: 4px; 
- cursor: pointer; 
- } 
- h1 { 
- color: green; 
- } 
- </style> 
+    <title>Exception Handling in AngularJS</title> 
+    <style> 
+        input { 
+            width: 100px; 
+            padding: 5px 15px; 
+            margin: 5px 0; 
+            box-sizing: border-box; 
+            border: 2px solid #ccc; 
+            border-radius: 4px; 
+        } 
+        
+        button { 
+            width: 80px; 
+            background-color: #4caf50; 
+            color: white; 
+            padding: 6px 12px; 
+            margin: 5px 0; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+        } 
+        
+        h1 { 
+            color: green; 
+        } 
+    </style> 
 </head> 
 <body ng-app="myApp"> 
- <center> 
- <h1> Geeksforgeeks</h1> 
- <div ng-controller="myCtrl"> 
- <p>Enter a number:</p> 
- <input type="number" ng-model="num" /> 
- <button ng-click="calculate()">Calculate</button> 
- <p>Result: {{result}}</p> 
- <p>Any Exception: {{errorMessage}}</p> 
- </div> 
- </center>
- <script src= 
-"https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"> 
- </script> 
- <script> 
- angular.module('myApp', []) 
- .controller('myCtrl', function ($scope, $exceptionHandler) { 
- $scope.calculate = function () { 
- try { 
- if ($scope.num < 0) { 
- $scope.result = "Not Possible"; 
- throw new Error("Number must be positive."); 
- } 
- $scope.result = Math.sqrt($scope.num); 
- $scope.errorMessage = "No Exceptions"; 
- } catch (e) { 
- $scope.errorMessage = e.message; 
- $exceptionHandler(e); 
- } 
- } 
- }); 
- </script> 
+    <center> 
+        <h1>Geeksforgeeks</h1> 
+        <div ng-controller="myCtrl"> 
+            <p>Enter a number:</p> 
+            <input type="number" ng-model="num" /> 
+            <button ng-click="calculate()">Calculate</button> 
+            <p>Result: {{result}}</p> 
+            <p>Any Exception: {{errorMessage}}</p> 
+        </div> 
+    </center>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script> 
+    <script> 
+        angular.module('myApp', []) 
+        .controller('myCtrl', function ($scope, $exceptionHandler) { 
+            $scope.calculate = function () { 
+                try { 
+                    if ($scope.num < 0) { 
+                        $scope.result = "Not Possible"; 
+                        throw new Error("Number must be positive."); 
+                    } 
+                    $scope.result = Math.sqrt($scope.num); 
+                    $scope.errorMessage = "No Exceptions"; 
+                } catch (e) { 
+                    $scope.errorMessage = e.message; 
+                    $exceptionHandler(e); 
+                } 
+            } 
+        }); 
+    </script> 
 </body> 
 </html>
+
